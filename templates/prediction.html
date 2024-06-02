@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title></title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="static/assets/img/favicon.png" rel="icon">
+    <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="static/assets/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo mr-auto"><a href="/">CREDIT CARD FRAUDS</a></h1>
+
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/load">Load Data</a></li>
+                <li><a href="/preprocess">Preprocess Data</a></li>
+                <li><a href="/viewdata">View Data</a></li>
+                <li><a href='/model'>Select Model</a></li>
+                <li class="active"><a href="{{ url_for('prediction') }}">Prediction</a></li>
+                <li><a href="/graph">Graph</a></li>
+
+
+
+
+            </ul>
+        </nav><!-- .nav-menu -->
+
+
+    </div>
+
+</header><!-- End Header -->
+
+<style>
+      .label-pos{
+        width: 120px;
+        padding-left: 40px;
+        padding-right: 10px;
+      }
+
+      .para-table{
+        display: table-row;
+        color: #62cfda;
+      }
+  </style>
+
+======= Hero Section =======
+<section id="hero" class="d-flex justify-content-center" style="height:733px">
+    <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+        <h2 style="color:white; text-align: center">Predictions</h2><br>
+        {% if pred is defined %}
+        <center>
+            <h4 style="color: white">The transaction is predicted to be a {{ pred }} transaction.</h4><br>
+            <a href="{{ url_for('prediction') }}" class="btn btn-warning">Predict Again</a>
+        </center>
+        {% else %}
+        <form action="{{url_for('prediction')}}" method="post" style="display:table">
+            <div class="row">
+                <div class="column">
+                    <p class="para-table">
+                        <label for="f1" class="label-pos">Time</label>
+                        <input type="number" id="f1" name="f1" placeholder="Time" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f2" class="label-pos">V1</label>
+                        <input type="number" id="f2" name="f2" placeholder="V1" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f3" class="label-pos">V2</label>
+                        <input type="number" id="f3" name="f3" placeholder="V2" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f4" class="label-pos">V3</label>
+                        <input type="number" id="f4" name="f4" placeholder="V3" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f5" class="label-pos">V4</label>
+                        <input type="number" id="f5" name="f5" placeholder="V4" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f6" class="label-pos">V5</label>
+                        <input type="number" id="f6" name="f6" placeholder="V5" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f7" class="label-pos">V6</label>
+                        <input type="number" id="f7" name="f7" placeholder="V6" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f8" class="label-pos">V7</label>
+                        <input type="number" id="f8" name="f8" placeholder="V7" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f9" class="label-pos">V8</label>
+                        <input type="number" id="f9" name="f9" placeholder="V8" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f10" class="label-pos">V9</label>
+                        <input type="number" id="f10" name="f10" placeholder="V9" step="any">
+                    </p>
+                </div>
+                <div class="column" style="margin-left:90px">
+                    <p class="para-table">
+                        <label for="f11" class="label-pos">V10</label>
+                        <input type="number" id="f11" name="f11" placeholder="V10" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f12" class="label-pos">V11</label>
+                        <input type="number" id="f12" name="f12" placeholder="V11" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f13" class="label-pos">V12</label>
+                        <input type="number" id="f13" name="f13" placeholder="V12" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f14" class="label-pos">V13</label>
+                        <input type="number" id="f14" name="f14" placeholder="V13" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f15" class="label-pos">V14</label>
+                        <input type="number" id="f15" name="f15" placeholder="V14" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f16" class="label-pos">V15</label>
+                        <input type="number" id="f16" name="f16" placeholder="V15" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f17" class="label-pos">V16</label>
+                        <input type="number" id="f17" name="f17" placeholder="V16" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f18" class="label-pos">V17</label>
+                        <input type="number" id="f18" name="f18" placeholder="V17" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f19" class="label-pos">V18</label>
+                        <input type="number" id="f19" name="f19" placeholder="V18" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f20" class="label-pos">V19</label>
+                        <input type="number" id="f20" name="f20" placeholder="V19" step="any">
+                    </p>
+                </div>
+                <div class="column" style="margin-left: 90px">
+                    <p class="para-table">
+                        <label for="f21" class="label-pos">V20</label>
+                        <input type="number" id="f21" name="f21" placeholder="V20" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f22" class="label-pos">V21</label>
+                        <input type="number" id="f22" name="f22" placeholder="V21" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f23" class="label-pos">V22</label>
+                        <input type="number" id="f23" name="f23" placeholder="V22" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f24" class="label-pos">V23</label>
+                        <input type="number" id="f24" name="f24" placeholder="V23" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f25" class="label-pos">V24</label>
+                        <input type="number" id="f25" name="f25" placeholder="V24" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f26" class="label-pos">V25</label>
+                        <input type="number" id="f26" name="f26" placeholder="V25" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f27" class="label-pos">V26</label>
+                        <input type="number" id="f27" name="f27" placeholder="V26" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f28" class="label-pos">V27</label>
+                        <input type="number" id="f28" name="f28" placeholder="V27" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f29" class="label-pos">V28</label>
+                        <input type="number" id="f29" name="f29" placeholder="V28" step="any">
+                    </p>
+                    <p class="para-table">
+                        <label for="f30" class="label-pos">Amount</label>
+                        <input type="number" id="f30" name="f30" placeholder="Amount" step="any">
+                    </p>
+                </div>
+            </div><br>
+            <center>
+                <div>
+                    <input type="submit" class="btn btn-primary" value="Predict" style="margin-left: 80px;">
+                </div>
+            </center>
+        </form>
+        {% endif %}
+
+    </div>
+</section><!-- End Hero -->
+
+
+
+
+
+<!-- Vendor JS Files -->
+<script src="static/assets/vendor/jquery/jquery.min.js"></script>
+<script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="static/assets/vendor/php-email-form/validate.js"></script>
+<script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="static/assets/vendor/counterup/counterup.min.js"></script>
+<script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="static/assets/vendor/aos/aos.js"></script>
+
+<!-- Template Main JS File -->
+<script src="static/assets/js/main.js"></script>
+
+
+</body>
+
+</html>
